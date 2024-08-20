@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas sobre HTTP</title>
+</head>
+<body>
+    <header>
+        <h1>Preguntas y referencias sobre protocolo HTTP</h1>
+    </header>
+    <hr/>
+    <nav>
+        <h2>Sección de referencias de interés</h2>
+        <ul>
+            <li><a href="https://www.akamai.com/es/glossary/what-is-http" target="_blank">¿Qué es HTTP?</a></li>
+            <li><a href="https://www.hostinger.com.ar/tutoriales/http-vs-https" target="_blank">HTTP vs HTTPS</a></li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Overview" target="_blank">Generalidades de HTTP</a></li>
+        </ul>
+    </nav>
+    <hr/>
+    <section>
+        <h2>Sección de preguntas sobre HTTP</h2>
+        <ul>
+            <li><h4>¿Sobre qué protocolo binario está montado el protocolo HTTP?</h4></li>
+                <p>HTTP/2 está montado sobre un protocolo binario TCP, lo que permite la compactación de cabeceras y la multiplexación de respuestas. HTTP/3, por su parte, estará montado sobre QUIC, que también es un protocolo binario.</p>
+            <li><h4>¿Cuáles son los clientes HTTP y los servidores HTTP más utilizados?</h4></li>
+                <ul>
+                    <li>Clientes HTTP: Navegadores web como Chrome, Firefox, Edge, Safari, CURL, y librerías nativas de diversos lenguajes de desarrollo.</li>
+                    <li>Servidores HTTP: Apache, Nginx, IIS (Internet Information Services), y en algunos casos, servidores de aplicaciones como Tomcat (aunque Tomcat no es un webserver per se, sino una JVM que puede interpretar código Java).</li>
+                </ul> 
+            <li><h4>¿Qué verbos admite un comando en el requerimiento HTTP?</h4></li>
+                <ul>
+                    <li>GET: Para solicitar un recurso.</li>
+                    <li>POST: Para enviar datos al servidor, típicamente para crear o actualizar un recurso.</li>
+                    <li>DELETE: Para eliminar un recurso en el servidor.</li>
+                    <li>PUT: Para actualizar o crear un recurso en el servidor.</li>
+                    <li>CONNECT: Utilizado por proxies para establecer un túnel de comunicación.</li>
+                </ul>
+            <li><h4>¿Qué contenido lleva el body de un requerimiento HTTP?</h4></li>
+                <p>El body de un requerimiento HTTP puede contener datos en cualquier formato. Esto incluye:</p>
+                <ul>
+                    <li>Texto plano</li>
+                    <li>Datos enviados en formularios</li>
+                    <li>Archivos en procesos de carga (upload)</li>
+                    <li>Datos binarios</li>
+                    <li>En caso de un formulario, el body puede incluir variables del formulario y otros datos enviados al servidor.</li>
+                </ul>
+            <li><h4>¿Qué diferencia existe entre un URL y un URI?</h4></li>
+                <ul>
+                    <li>URI (Uniform Resource Identifier): Es una cadena de caracteres que identifica un recurso de forma unívoca en la web. Puede incluir tanto localizadores (URLs) como nombres (URNs).</li>
+                    <li>URL (Uniform Resource Locator): Es un tipo específico de URI que no solo identifica un recurso, sino que también proporciona los medios para localizarlo (por ejemplo, indicando su dirección en la red).</li>
+                </ul>
+            <li><h4>¿Cómo se almacena información relacionada con las respuestas HTTP?</h4></li>
+                <p>La información relacionada con las respuestas HTTP se almacena en caches. Existen diferentes mecanismos de cacheo, como:</p>
+                <ul>
+                    <li>Cache basado en fechas: Utilizando cabeceras como 'If-Modified-Since' para determinar si un recurso ha sido modificado.</li>
+                    <li>Cache basado en ETags: Utilizando etiquetas únicas para identificar versiones de un recurso y decidir si es necesario descargarlo nuevamente.</li>
+                </ul>
+            <li><h4>¿Qué significa Virtual hosting?</h4></li>
+                <p>Virtual Hosting permite a un servidor web atender múltiples dominios (y por ende múltiples sitios web) usando una única dirección IP. Esto se configura a través del servidor web, que puede determinar el host virtual basado en la información del encabezado 'Host' enviado por el cliente.</p>
+            <li><h4>¿Por qué el HTTP se considera STATELESS?</h4></li>
+                <p>El protocolo HTTP se considera "stateless" o sin estado porque cada petición se maneja de forma independiente. No hay persistencia de información de una petición a otra por parte del servidor, lo que significa que el servidor no guarda información sobre sesiones anteriores del cliente.</p>
+            <li><h4>¿Qué nueva versión de HTTP se está usando para mejorar la velocidad de la WEB?</h4></li>
+                <p>La versión HTTP/2 se ha estado utilizando para mejorar la velocidad de la web, y desde 2015 está en funcionamiento. Además, HTTP/3, que se basa en QUIC, se está comenzando a utilizar para mejorar aún más la velocidad y la eficiencia en la web.</p>
+            <li><h4>¿Cómo va a mejorar el comportamiento de una aplicación WEB en ambientes ruidosos o de débil conexión?</h4></li>
+                <p>HTTP/3 mejora el comportamiento de una aplicación web en ambientes ruidosos o con conexiones débiles gracias a su implementación sobre QUIC. QUIC permite una mejor capacidad de reconexión, multiplexación de streams, y es más resistente a la pérdida de paquetes, lo que mejora la velocidad y fiabilidad en redes inestables.</p>
+        </ul>
+    </section>
+    <hr/>
+    <section>
+        <h2>Sección de imágenes representativas del protocolo</h2>
+        <img src="httpimg.png" width="600" height="300"/><br />
+        <img src="httpgif.gif" width="400" height="500"/>
+    </section>
+    <hr/>
+    <section>
+        <h2>Sección de videos representativos del protocolo</h2>
+        <video width="500" height="300" controls>
+            <source src="httpvid.mp4" type="video/mp4">
+            <source src="http-https.mp4" type="video/mp4">
+        </video>
+        <video width="500" height="300" controls>
+            <source src="http-https.mp4" type="video/mp4">
+        </video>
+    </section>
+    <hr/>
+    <footer>
+        <h2>Datos del Alumno</h2>
+        <p style="font-style: italic;">Olga Renata Lombardo<br/>
+            P000185302<br/>
+            olga.lombardo@comunidad.ub.edu.ar
+        </p>
+    </footer>
+</body>
+</html>
