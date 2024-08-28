@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de iFrames</title>
+</head>
+<body>
+    <header>
+        <h1>Ejercicio de iFrames</h1>
+    </header>
+    <hr/>
+    <nav id="indice">
+        <h2>Índice</h2>
+        <ol>
+        <li><a href="../ejer01PregHTTP/index.html" target="fcontenido">Preguntas HTTP</a></li>
+        <li><a href="../ejer02Tablas/index.html" target="fcontenido">Ejercicio Tablas</a></li>
+        <li><a href="../ejer03Forms/index.html" target="fcontenido">Formulario</a></li>
+        <li><a href="./PoesiaCompleta-Pizarnik.pdf" target="fcontenido">Libro PDF</a></li>
+        <li><a href="./Cardigan-TaylorSwift.mp4" target="fcontenido">Archivo de video local</a></li>
+        <li><a href="https://www.youtube.com/embed/6qwthmj6KzY?si=EdQqO7QlKeCKgZtc" target="fcontenido">Video de YouTube</a></li>
+        </ol>
+    </nav>
+    <br />
+    <h2>iFrame para mostrar los ejercicios anteriores, un PDF, un archivo MP4 local y un video de YouTube</h2>
+    <iframe src="../ejer01PregHTTP/index.html" name="fcontenido" style="width: 80%; height: 70vh; border:solid;">
+    </iframe>
+    <h2 style="margin-top: 50px;">iFrame recomendado por YouTube para insertar su video y verlo en toda su dimensión</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WKig0_VzhD4?si=Xa0Xu0vIZ8TIK2W0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+    <hr style="margin-top: 50px;"/>
+    <div>
+        <h3><a href="#indice">Regresar al índice anterior</a></h3>
+        <h3><a href="../index.html">Regresar al índice principal</a></h3>
+    </div>
+</body>
+</html>

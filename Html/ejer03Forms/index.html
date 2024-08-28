@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Formularios HTML</h1>
+    </header>
+    <hr/>
+    <form method="GET" action="rtasForm.html">
+        <h3>Entradas Simples</h3>
+        <ul>
+            <li style="margin-bottom: 10px;">
+                <label for="username" style="font-weight: bold;">Usuario:</label><br />
+                <input type="text" id="username" name="username">
+            </li>
+            <li style="margin-bottom: 10px;">
+                <label for="password" style="font-weight: bold;">Contraseña:</label><br />
+                <input type="password" id="password" name="password">
+            </li>
+            <span style="font-weight: bold;">Oculto:</span>
+            <li style="margin-top: 10px;">
+                <label for="disabled" style="font-weight: bold;">Campo deshabilitado:</label><br />
+                <input type="text" id="disabled" value="Deshabilitado" disabled>
+            </li>
+            <li style="margin-top: 10px">
+                <label for="readonly" style="font-weight: bold;">Campo de solo lectura:</label><br />
+                <input type="text" id="readonly" value="Solo lectura" readonly>
+            </li>
+        </ul>
+        <h3>Entradas de Selección</h3>
+        <ul>
+            <li>
+                <label style="font-weight: bold;">Estudia danza</label><br />
+                <input type="checkbox" name="estudios" value="danza">
+            </li>
+            <br />
+            <li>
+                <label style="font-weight: bold;">Estudia programación</label><br />
+                <input type="checkbox" name="estudios" value="programacion">
+            </li>
+            <br />
+            <li>
+                <label style="font-weight: bold;">Estudia inglés</label><br />
+                <input type="checkbox" name="estudios" value="ingles">
+            </li>
+            <li style="margin-top: 10px;">
+                <span style="font-weight: bold; margin-bottom: 5px">Sexo:</span><br />
+                <label>Masculino</label>
+                <input type="radio" name="sexo" value="masculino">
+                <label>Femenino</label>
+                <input type="radio" name="sexo" value="femenino">
+                <label>Otro</label>
+                <input type="radio" name="sexo" value="otro">
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="nivelEstudios" style="font-weight: bold;">Nivel de estudios:</label><br />
+                <select id="nivelEstudios" name="nivelEstudios">
+                    <option value="primario">Primario</option>
+                    <option value="secundario">Secundario</option>
+                    <option value="terciario">Terciario</option>
+                    <option value="universitario">Universitario</option>
+                    <option value="posgrado">Posgrado</option>
+                    <option value="maestria">Maestría</option>
+                </select>
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="fechaHora" style="font-weight: bold;">Fecha y hora:</label><br />
+                <input type="date" id="fecha" name="fecha">
+                <input type="time" id="hora" name="hora">
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="color" style="font-weight: bold;">Color favorito:</label><br />
+                <input type="color" id="color" name="color">
+            </li>
+        </ul>
+        <h3>Entradas con Validación</h3>
+        <ul>
+            <li>
+                <label for="nombreCompleto" style="font-weight: bold;">Nombre completo (requerido):</label><br />
+                <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+            </li>
+            <li style="margin-top:10px;">
+                <label for="email" style="font-weight: bold;">Email (validación por @ y required):</label><br />
+                <input type="email" id="email" name="email" placeholder="texto@texto" required>
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="numeroEntero" style="font-weight: bold;">Número entero limitado (validación por tipo numérico y cotas):</label><br />
+                <input type="number" id="numEntero" name="numEntero" min="1" max="100" step="1">
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="numeroDecimal" style="font-weight: bold;">Número decimal (validación por tipo numérico y required):</label><br />
+                <input type="number" id="numDecimal" name="numDecimal" step="0.01" required>
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="url" style="font-weight: bold;">URL (validación por http:// y required):</label><br />
+                <input type="url" id="url" name="url" placeholder="http://texto" required>
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="patron" style="font-weight: bold;">Patrón de validación:</label><br />
+                <input type="text" id="patron" name="patron" pattern="[a-zA-Z]{3}35" title="Tres letras y dos números que solo sean el 3 y el 5">
+            </li>
+            <li style="margin-top: 10px;">
+                <label for="telefono" style="font-weight: bold;">Teléfono:</label><br />
+                <input type="tel" id="telefono" name="telefono" pattern="\(\+54\) 3704 \d{6}" placeholder="(+54) 3704 XXXXXX" title="(+54) 3704 XXXXXX">
+            </li>
+        </ul>
+        <button type="submit">Enviar</button><br />
+        <button type="reset" style="margin-top: 10px;">Restablecer</button>
+    </form>
+</body>
+</html>
