@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selectores de Clase</title>
+    <style>
+        p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        .claseResaltado {
+            font-size: 1em;
+            font-weight: bold;
+            background-color:lightskyblue;
+        }
+
+        .claseAcotacion {
+            text-align: center;
+            font-size: 12.5px;
+            font-style: italic;
+            color:palevioletred;
+            border-style: solid;
+            border-width: thin; 
+            border-color: hotpink;
+            padding: 8px;
+        }
+
+        .claseDarkRed {
+            display:inline-block;
+            text-align:center;
+            font-size: 16px;
+            font-style: italic;
+            color:darkred;
+            border-style: solid;
+            border-width: thin; 
+            border-color:darkred;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .claseContenidoComun {
+            font-size: 20px;
+        }
+
+        #idIndigo {
+            display:inline-block;
+            text-align:center;
+            font-size: 20px;
+            font-style:italic;
+            color:indigo;
+            background-color: lavender;
+            font-weight: bold;
+            border-style: solid;
+            border-width: thin;
+            border-color:indigo;
+            padding: 3px;
+        }
+
+        .imagenAl50 {
+            width: 50%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selectores de clase</h1>
+    </header>
+    <p>
+        Cada vez que respiro es como si <span class="claseResaltado">el vacío me entrara en el pecho</span>
+        donde <span class="claseResaltado">ya no estás.</span></br>
+        (span con estilo de class="claseResaltado")
+    </p>
+    <p class="claseAcotacion">
+        "Tu alma es extraordinaria, quiere saber ser el tiempo, y no quieren saber de mirar relojes tus ojos claros de sol a sol. Una extraña razón nos mantiene aquí en el dulce esplendor. Y tu mañana única espera la vida como el arroyo que horada la piedra por siglos"
+    </p>
+    <p class="claseResaltado">
+        "Quizás porque no soy de la nobleza puedo nombrarte mi reina y princesa, y darte coronas de papel de cigarrillo"</br>
+        (estilo de class="claseResaltado")
+    </p>
+    <p class="claseDarkRed">
+        What if she's fine? It's my mind that's wrong. And I just let bad thoughts linger for far too long</br>
+        (estilo de class="claseDarkRed")
+    </p>
+    <p class="claseContenidoComun">
+        "Te suplico que me avises si me vienes a buscar... no es porque te tenga miedo, solo me quiero arreglar"</br>
+        (estilo de class="claseContenidoComun")</p>
+    <p id="idIndigo">
+        I should have loved a thunderbird instead;</br>
+        At least when spring comes they roar back again.</br>
+        I shut my eyes and all the world drops dead.</br>
+        I think I made you up inside my head.</br>
+        (estilo de id="idIndigo")
+    </p>
+    <h1>Imagen con class="imagenAl50"</h1>
+    <img src="filosofia-barata_charly.jpg" alt="Filosofía Barata y Zapatos de Goma - Charly García" class="imagenAl50">
+</body>
+</html>
