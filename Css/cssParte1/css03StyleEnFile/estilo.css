@@ -1,0 +1,42 @@
+h1 {
+    background-color: mistyrose;
+    font-size: 2em;
+    text-align: center;
+    color:salmon;
+}
+
+p {
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    border-top: 2px rgb(160, 125, 255) solid;
+    border-bottom: 2px rgb(160, 125, 255) solid;
+    padding: 8px;
+    display: inline-block;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.claseHighlight {
+    background-color: rgb(189, 164, 255);
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+.claseComillas {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+h2 {
+    background-color: rgb(178, 255, 223);
+    font-size: 1.5em;
+    text-align: center;
+    color:rgb(84, 177, 138);
+}
+
+.imagenAna {
+    width: auto;
+    margin-left: 22%;
+    margin-right: 25%;
+}
