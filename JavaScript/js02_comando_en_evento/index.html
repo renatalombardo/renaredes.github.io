@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comandos con eventos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #5c7eda;
+            color: #880e4f;
+            padding: 15px;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #1c448f;
+        }
+
+        button {
+            background-color: #3817b1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b67d8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comando en evento.</h1>
+    <button onclick="alert('Este mensaje es una simple alerta');">
+        Click aquí para ejecutar un alert()
+    </button>
+    <button onclick="document.write('<style>body { font-size: 40px; }</style>Hola. Esta escritura pisa lo anterior')">
+        Click aquí para ejecutar un document.write()
+    </button>
+</body>
+</html>

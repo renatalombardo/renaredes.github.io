@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variables</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #80ace5;
+            height: 100vh;
+        }
+
+        .resultado {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #000000;
+            background-color: #2d7591;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #2413c2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #342d91;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de z: ' + z + '</h2><h2>Tipo de z: ' + typeof z + '</h2>';">
+            var z
+        </button>
+
+         <button onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de q: ' + q + '</h2><h2>Tipo de q: ' + typeof q + '</h2>';">
+            let q
+        </button>
+
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de a: ' + a + '</h2><h2>Tipo de a: ' + typeof a + '</h2>';">
+            var a = 3
+        </button>
+
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de b: ' + b + '</h2><h2>Tipo de b: ' + typeof b + '</h2>';">
+            var b = '1'
+        </button>
+
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de c: ' + c + '</h2><h2>Tipo de c: ' + typeof c + '</h2>';">
+            var c = 5
+        </button>
+
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de suma 1: ' + suma1 + '</h2><h2>Tipo de suma 1: ' + typeof suma1 + '</h2>';">
+            suma1 = a + b
+        </button>
+
+        <button
+            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de suma 2: ' + suma2 + '</h2><h2>Tipo de suma 2: ' + typeof suma2 + '</h2>';">
+            suma2 = a + c
+        </button>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script>
+        var z;
+        let q = "Hola mundo";
+        var a = 3;
+        var b = '1';
+        var c = 5;
+        var suma1 = a + b;
+        var suma2 = a + c;
+    </script>
+
+</body>
+
+</html>

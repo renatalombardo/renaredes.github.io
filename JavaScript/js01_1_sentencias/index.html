@@ -1,30 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Ejercicio 1 - Sentencias</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diálogo entre Java y HTML</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h3 {
+            color: #15037a;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background-color: #0f8bd3;
+            border: 2px solid #1b05e6;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .message {
+            background-color: #ade6b2;
+            border: 2px solid #60b446;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin: 10px 0;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Texto1 escrito directamente en HTML</h1>
-
-    <script>
-        // Alerta 1
-        alert("Alert 1. Primer mensaje de alerta.");
-
-        // Primeras escrituras después de aceptar alerta 1
-        document.write("<h2>Texto2. Mensaje escrito desde JavaScript utilizando el método write().</h2>");
-        document.write("<p>No pisa al documento porque aún no terminó el flujo de escritura del navegador</p>");
-
-        // Alerta 2 después de mostrar los dos primeros textos
-        alert("Alert 2. Este mensaje de alerta interrumpe el flujo de escritura del documento");
-
-        // Restante del contenido después de aceptar alerta 2
-        document.write("<h2>Texto4 escrito desde JavaScript después de presentar alert(2)</h2>");
-        document.write("<h2>Texto5. Otra escritura con método write() aplicado al documento.</h2>");
-        document.write("<p>El texto escrito con write no pisa al documento porque aún no terminó el flujo de escritura del navegador</p>");
-        document.write("<p>El flujo de escritura sobre el navegador termina un tiempo después de la última línea del documento y de haber cerrado todas las ventanas modales de tipo alert().</p>");
+    <script type="text/javascript">
+        alert("Este es un mensaje de alerta, seleccione aceptar para continuar");
     </script>
 
+    <h3>Texto 1 HTML</h3>
+
+    <script>
+        document.write('<h1 class="message">Texto 1 Java</h1>')
+    </script>
+
+    <h3>Texto 2 HTML</h3>
+
+    <script>
+        document.write('<h1 class="message">Texto 2 Java</h1>')
+    </script>
+
+    <h3>Texto 3 HTML</h3>
+
+    <div class="highlight">
+        <script>
+            document.write("Se puede observar como Java y HTML no se pisan porque todavia el flujo de escritura del navegador sigue")
+        </script>
+    </div>
+
+    <br><br>
+
+    <div class="highlight">
+        <script>
+            document.write("Y al ser esta la ultima linea del documento se termina este flujo de escritura ")
+        </script>
+    </div>
 </body>
 </html>
 
