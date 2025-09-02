@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Divs Internos Relativos</title>
+  <style>
+    body {
+      margin: 0;
+      background-color:rgb(99, 49, 14); 
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .contenedor-padre {
+      width: 80%;
+      margin: auto;
+      background: #fdf5e6;
+      padding: 20px;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .caja {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #fff;
+      position: relative;
+    }
+
+    .caja1 {
+      background-color: brown; 
+      width: 93%;
+      height: 70px;
+    }
+
+    .caja2, .caja3 {
+      background: #071b05c7; 
+      width: 50%;
+      height: 100px;
+      left: 60px;
+    }
+
+    .caja3 {
+        top: -10px;
+    }
+
+    .caja4 {
+      background-color:maroon; 
+      width: 55%;
+      height: 100px;
+      top: -10px;
+      left: 120px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 100px;
+      right: 150px;
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 180, 93, 0.5);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .modal p {
+      margin: 10px 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 6px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor-padre">
+    <h1>Contenedores Relativos</h1>
+
+    <div class="caja caja1">Contenedor relativo clase1</div>
+    <div class="caja caja2">Contenedor relativo clase2</div>
+    <div class="caja caja3">Contenedor relativo clase3</div>
+    <div class="caja caja4">Contenedor relativo clase4</div>
+  </div>
+
+  <div class="modal">
+    <p>Contenedor Modal</p>
+    <p>Contenedor Modal</p>
+    <p>Contenedor Modal</p>
+    <p>Contenedor Modal</p>
+    <p>Contenedor Modal</p>
+    <p>Contenedor Modal</p>
+  </div>
+</body>
+</html>
+
+

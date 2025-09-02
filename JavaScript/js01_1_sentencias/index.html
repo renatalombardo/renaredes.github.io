@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 1 - Sentencias</title>
+</head>
+<body>
+  <h1>Texto1 escrito directamente en HTML</h1>
+  <script type="text/javascript">
+    alert("Alert 1. Primer mensaje de alerta.");
+
+    document.write("<h2>Texto2. Mensaje escrito desde JavaScript utilizando el método write().</h2>");
+    document.write("<p>No pisa al documento porque aún no terminó el flujo de escritura del navegador</p>");
+
+    alert("Alert 2. Este mensaje de alerta interrumpe el flujo de escritura del documento");
+
+    <h2>Texto4 escrito en HTML escrito después de presentar el alert(2)</h2>
+
+    document.write("<h2>Texto5. Otra escritura con método write() aplicado al documento.</h2>");
+    document.write("<p>El texto escrito con write no pisa al documento porque aún no terminó el flujo de escritura del navegador</p>");
+    document.write("<p>El flujo de escritura sobre el navegador termina un tiempo después de la última línea del documento y de haber cerrado todas las ventanas modales de tipo alert().</p>");
+  </script>
+</body>
+</html>

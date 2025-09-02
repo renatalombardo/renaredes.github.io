@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 88%;
+    height: 400px;
+    margin: 45px auto;
+    padding: 30px;
+    background-color: #4c5c09;
+    border: 3px solid #1b2d09;
+    box-sizing: border-box;
+}
+
+.imagenConTexto {
+    width: 70%;
+    height: 335px;
+    margin: 0 auto;
+    padding: 16px 18px;
+    border: 2px solid #1b2d09;
+    background-image: url("JyJ.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: contain;
+    overflow: auto;
+    line-height: 1.45;
+    box-sizing: border-box;
+}
+
+.imagenConTexto p {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-align: justify;
+    color: darkolivegreen;
+    text-shadow: 1px 1px 2px #000;
+}

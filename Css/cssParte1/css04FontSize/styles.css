@@ -1,0 +1,33 @@
+h1 {
+    font-size: 24px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+p {
+    font-size: 12px;
+    background-color: lightsteelblue;
+    text-align: center;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1080px){
+    h1 {
+        font-size: 48px;
+        background-color:lightcoral;
+    }
+    p {
+        font-size: 24px;
+        background-color: lightpink;
+    }
+}
+
+@media screen and (min-width: 1081px) {
+    h1 {
+        font-size: 72px;
+        background-color:plum;
+    }
+    p {
+        font-size: 36px;
+        background-color:thistle;
+    }
+}

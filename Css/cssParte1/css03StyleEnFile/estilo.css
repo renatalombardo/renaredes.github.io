@@ -5,16 +5,18 @@ h1 {
     color:salmon;
 }
 
+.claseCita {
+    margin: auto;
+    text-align: center;
+}
+
 p {
     font-style: italic;
-    font-size: 20px;
-    text-align: center;
+    font-size: 19px;
     border-top: 2px rgb(160, 125, 255) solid;
     border-bottom: 2px rgb(160, 125, 255) solid;
     padding: 8px;
     display: inline-block;
-    margin-left: 30%;
-    margin-right: 30%;
 }
 
 .claseHighlight {
@@ -30,13 +32,19 @@ p {
 
 h2 {
     background-color: rgb(178, 255, 223);
-    font-size: 1.5em;
+    font-size: 1.8em;
     text-align: center;
     color:rgb(84, 177, 138);
 }
 
-.imagenAna {
-    width: auto;
-    margin-left: 22%;
-    margin-right: 25%;
+.claseImagen {
+    width: 55%;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 8px;
 }
+
+.estiloImagen {
+    height: auto;
+    box-shadow: 0px 0px 15px rgba(66, 90, 114, 255);
+}   
