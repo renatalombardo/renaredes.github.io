@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #0e1a88;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #000000;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            background-color: #40ccb5;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            color: #880e4f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <script type="text/javascript">
+
+            var arregloAlumnos = [];
+            arregloAlumnos = ["Joaquin", "Olga"];
+
+            arregloAlumnos.push(prompt('El arregloAlumnos ya tiene dos estudiantes asignados por programa, agregue un tercer estudiante: '));
+
+            document.write("<h1> Variables multidimensionales. </h1>");
+            document.write("<h1> Array de índice numérico. </h1>");
+            document.write("<h2> Tipo para arregloAlumnos: " + typeof arregloAlumnos + " </h2>");
+            document.write("<h3>Primera estudiante cargada desde programa: " + arregloAlumnos[0] + "</h3>");
+            document.write("<h3>Segundo estudiante cargado desde programa: " + arregloAlumnos[1] + "</h3>");
+            document.write("<h3>Tercer estudiante cargado desde teclado: " + arregloAlumnos[2] + "</h3>");
+            document.write("<h2>Cantidad de estudiantes en la clase: " + arregloAlumnos.length + "</h2>");
+
+        </script>
+    </div>
+
+</body>
+
+</html>
