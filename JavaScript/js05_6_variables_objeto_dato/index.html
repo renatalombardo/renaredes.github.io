@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Alumnos</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #afe6a4;
+            color: #137049;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #37a71c;
+        }
+
+        .formulario {
+            background-color: #88cea7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 98%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #438eb9;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3ebb68;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #708f36;
+        }
+
+        .control {
+            background-color: #88cea7;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid darkolivegreen;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: lightgreen;
+        }
+
+        #longitud {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formulario">
+        <h1>Tabla de Alumnos</h1>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Ingrese nombre">
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Ingrese apellido">
+
+        <label for="fechaNac">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNac">
+
+        <button id="crearAlumno">Agregar Alumno</button>
+    </div>
+
+    <div class="control">
+        <button id="mostrarLista">Lista de Alumnos</button>
+        <button id="ocultarPresentacion">Ocultar Lista</button>
+    </div>
+
+    <div id="presentacion" class="hidden">
+        <h2>Lista</h2>
+        <table id="tablaAlumnos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de Nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <p id="longitud"></p>
+    </div>
+
+    <script>
+        const arregloAlumnos = [
+            { nombre: "Renata", apellido: "Lombardo", fechaNac: "2004-03-25" },
+            { nombre: "Eloy", apellido: "Oliva", fechaNac: "2003-09-03" }
+        ];
+
+        document.getElementById("crearAlumno").addEventListener("click", function () {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const fechaNac = document.getElementById("fechaNac").value;
+
+            if (nombre && apellido && fechaNac) {
+                const nuevoAlumno = { nombre, apellido, fechaNac };
+                arregloAlumnos.push(nuevoAlumno);
+                alert("Alumno añadido correctamente.");
+                document.getElementById("nombre").value = '';
+                document.getElementById("apellido").value = '';
+                document.getElementById("fechaNac").value = '';
+            } else {
+                alert("Por favor, complete todos los campos.");
+            }
+        });
+
+        document.getElementById("mostrarLista").addEventListener("click", function () {
+            const tabla = document.querySelector("#tablaAlumnos tbody");
+            tabla.innerHTML = '';
+
+            arregloAlumnos.forEach(alumno => {
+                const fila = `<tr>
+                    <td>${alumno.nombre}</td>
+                    <td>${alumno.apellido}</td>
+                    <td>${alumno.fechaNac}</td>
+                </tr>`;
+                tabla.innerHTML += fila;
+            });
+
+            document.getElementById("longitud").innerHTML = `Longitud del arreglo de objetos: ${arregloAlumnos.length}`;
+            document.getElementById("presentacion").classList.remove("hidden");
+        });
+
+        document.getElementById("ocultarPresentacion").addEventListener("click", function () {
+            document.getElementById("presentacion").classList.add("hidden");
+        });
+    </script>
+
+</body>
+</html>

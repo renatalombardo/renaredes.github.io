@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validación con KeyUp</title>
+  <style>
+    body {
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background-color: rgb(255, 238, 236);
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    form {
+      background-color:lightcoral;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 6px;
+    }
+
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 20px;
+      margin: 5px;
+      background-color: aquamarine;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgb(75, 255, 195);
+    }
+  </style>
+</head>
+<body>
+  <h2>Validación de Cumpleaños</h2>
+
+  <form id="miFormulario" action="respuesta.html" method="get">
+    <label for="dia">Ingrese su día de nacimiento:</label>
+    <input type="number" id="dia" name="diaDelMes" placeholder="1 - 31" min="1" max="31">
+
+    <label for="mes">Ingrese el número del mes:</label>
+    <input type="number" id="mes" name="mes" placeholder="1 - 12" min="1" max="12">
+
+    <button type="submit">Enviar</button>
+    <button type="reset">Reset</button>
+  </form>
+
+  <script>
+    const diaInput = document.getElementById("dia");
+    const mesInput = document.getElementById("mes");
+    const form = document.getElementById("miFormulario");
+
+    diaInput.addEventListener("keyup", function () {
+      let valor = parseInt(diaInput.value, 10);
+      if (diaInput.value !== "" && (isNaN(valor) || valor < 1 || valor > 31)) {
+        alert("El valor debe estar entre 1 y 31");
+        diaInput.value = "";
+      }
+    });
+
+    mesInput.addEventListener("keyup", function () {
+      let valor = parseInt(mesInput.value, 10);
+      if (mesInput.value !== "" && (isNaN(valor) || valor < 1 || valor > 12)) {
+        alert("El valor debe estar entre 1 y 12");
+        mesInput.value = "";
+      }
+    });
+
+    form.addEventListener("submit", function (e) {
+      if (diaInput.value === "" || mesInput.value === "") {
+        alert("Complete los campos correctamente antes de enviar.");
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

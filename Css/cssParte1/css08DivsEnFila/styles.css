@@ -5,9 +5,9 @@ h1 {
 }
 
 .contenedor {
-    width: 80%;
+    width: 83%;
     overflow: hidden;
-    background-color: plum;
+    background-color:lightgrey;
     margin: auto;
     padding: 10px;
     box-sizing: border-box;
@@ -75,4 +75,12 @@ h1 {
     font: italic bold 15px Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgba(255, 255, 255, 0.712);
     text-shadow: 2px 2px 3px black;
+}
+
+.caja5 {
+    background-image: url("buenos_aires\(1\).JPG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 2px 2px 3px whitesmoke;
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de Objetos</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #f5f0e6;
+            color: #3e2f1c;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #4b3b2a;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #a88c6c;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Garamond', serif;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8c7150;
+        }
+
+        .container {
+            background-color: #e6d8c3; 
+            padding: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 400px; 
+            overflow-y: auto;
+            border: 2px solid #bfa078;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .elemento {
+            background-color: #d4c1a1; 
+            border: 1px solid #bfa078;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #3e2f1c;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .elemento p {
+            font-weight: normal;
+            margin: 5px 0 0;
+            font-size: 14px;
+            font-style: italic;
+            color: #5b4b38;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diario de Estudio</h1>
+
+    <div class="controls">
+        <button id="crear">Agregar Entrada</button>
+        <button id="limpiar">Limpiar Diario</button>
+        <button id="info">Info</button>
+    </div>
+
+    <div id="contenedor" class="container"></div>
+
+    <script>
+        let contador = 1;
+
+        const btnCrear = document.getElementById('crear');
+        const btnLimpiar = document.getElementById('limpiar');
+        const btnInfo = document.getElementById('info');
+        const contenedor = document.getElementById('contenedor');
+
+        btnCrear.addEventListener('click', () => {
+            const nuevoElemento = document.createElement('div');
+            nuevoElemento.classList.add('elemento');
+            nuevoElemento.innerHTML = `
+                <h3>Entrada de diario #${contador}</h3>
+                <p>Reflexión o nota breve...</p>
+            `;
+            contenedor.appendChild(nuevoElemento);
+            contador++;
+            contenedor.scrollTop = contenedor.scrollHeight;
+        });
+
+        btnLimpiar.addEventListener('click', () => {
+            contenedor.innerHTML = '';
+            contador = 1;
+        });
+
+        btnInfo.addEventListener('click', () => {
+            alert(`Cantidad de entradas en el diario: ${contenedor.childNodes.length}`);
+        });
+    </script>
+</body>
+</html>
+

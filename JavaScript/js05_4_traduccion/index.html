@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Traducción Automática</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+        
+        #frase {
+            background: linear-gradient(to right, 
+                violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3em;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-align: center;
+            background-size: 200% auto;
+            animation: arcoiris 3s infinite linear;
+        }
+    
+        @keyframes arcoiris {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="frase" id="frase"></div>
+    <script>
+        const traducciones = {
+            "es": "Otro día en el planeta Tierra",
+            "en": "Another day on planet Earth",
+            "fr": "Un autre jour sur la planète Terre",
+            "pt": "Outro dia no planeta Terra",
+            "it": "Un altro giorno sul pianeta Terra",
+            "de": "Ein weiterer Tag auf dem Planeten Erde",
+            "ru": "Еще один день на планете Земля",
+            "zh": "地球上的另一天",
+            "ja": "地球でのもう一日"
+        };
+        let idioma = navigator.language;
+        idioma = idioma.substring(0,2);
+        const fraseTraducida = traducciones[idioma] || traducciones["en"];
+        document.getElementById("frase").textContent = fraseTraducida;
+    </script>
+</body>
+</html>
