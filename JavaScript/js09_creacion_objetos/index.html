@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creación de Objetos</title>
+    <title>Diario de Estudio</title>
     <style>
         body {
             font-family: 'Garamond', serif;
@@ -44,11 +43,11 @@
         }
 
         .container {
-            background-color: #e6d8c3; 
+            background-color: #e6d8c3;
             padding: 15px;
             width: 90%;
             max-width: 500px;
-            max-height: 400px; 
+            max-height: 400px;
             overflow-y: auto;
             border: 2px solid #bfa078;
             border-radius: 12px;
@@ -56,7 +55,7 @@
         }
 
         .elemento {
-            background-color: #d4c1a1; 
+            background-color: #d4c1a1;
             border: 1px solid #bfa078;
             border-radius: 10px;
             padding: 12px;
@@ -76,7 +75,9 @@
         }
     </style>
 </head>
+
 <body>
+
     <h1>Diario de Estudio</h1>
 
     <div class="controls">
@@ -88,34 +89,64 @@
     <div id="contenedor" class="container"></div>
 
     <script>
-        let contador = 1;
+        // Uso de objeto para almacenar datos 
+        let diarioData = {
+            contador: 1,
+            entradas: []
+        };
 
+        // Referencias a elementos del DOM
         const btnCrear = document.getElementById('crear');
         const btnLimpiar = document.getElementById('limpiar');
         const btnInfo = document.getElementById('info');
         const contenedor = document.getElementById('contenedor');
 
-        btnCrear.addEventListener('click', () => {
+        // Función para crear entrada 
+        function crearEntrada() { 
             const nuevoElemento = document.createElement('div');
-            nuevoElemento.classList.add('elemento');
-            nuevoElemento.innerHTML = `
-                <h3>Entrada de diario #${contador}</h3>
-                <p>Reflexión o nota breve...</p>
-            `;
+            nuevoElemento.className = 'elemento';
+            const textoHtml = `<h3>Entrada de diario #${diarioData.contador}</h3>
+                              <p>Reflexión o nota breve...</p>`;
+            nuevoElemento.innerHTML = textoHtml;
+             
             contenedor.appendChild(nuevoElemento);
-            contador++;
+            
+            // Agregar al array de entradas 
+            diarioData.entradas.push({
+                id: diarioData.contador,
+                elemento: nuevoElemento
+            });
+            
+            diarioData.contador++;
+            
+            // Auto-scroll hacia abajo
             contenedor.scrollTop = contenedor.scrollHeight;
-        });
+        }
 
-        btnLimpiar.addEventListener('click', () => {
-            contenedor.innerHTML = '';
-            contador = 1;
-        });
+        // Función para limpiar el diario 
+        function limpiarDiario() {
+            while(contenedor.childNodes.length > 0) {
+                contenedor.removeChild(contenedor.childNodes[0]);
+            }
+            
+            // Reiniciar datos
+            diarioData.contador = 1;
+            diarioData.entradas = [];
+        }
 
-        btnInfo.addEventListener('click', () => {
+        // Función para mostrar información
+        function mostrarInfo() {
             alert(`Cantidad de entradas en el diario: ${contenedor.childNodes.length}`);
-        });
+        }
+
+        // Asignar event listeners 
+        btnCrear.addEventListener('click', crearEntrada);
+        btnLimpiar.addEventListener('click', limpiarDiario);
+        btnInfo.addEventListener('click', mostrarInfo);
     </script>
+
 </body>
+
 </html>
+
 
