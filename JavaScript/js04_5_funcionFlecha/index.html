@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función Flecha</title>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    
+    .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+    }
+    
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+    
+    .calculator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    label {
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2c3e50;
+        white-space: nowrap;
+    }
+    
+    input {
+        width: 120px;
+        height: 44px;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+    
+    input:focus {
+        outline: none;
+        border-color: #4ca1af;
+        box-shadow: 0 0 0 3px rgba(76, 161, 175, 0.2);
+    }
+    
+    .operator {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 0 5px;
+        align-self: center;
+        margin-top: 24px;
+    }
+    
+    button {
+        background: linear-gradient(to right, #4ca1af, #2c3e50);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        height: 44px;
+        align-self: center;
+        margin-top: 24px;
+    }
+    
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    button:active {
+        transform: translateY(0);
+    }
+    
+    .resultado {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #4ca1af;
+        height: 44px;
+        align-self: center;
+        margin-top: 24px;
+    }
+    
+    .resultado h3 {
+        color: #2c3e50;
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+    
+    #resultado {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4ca1af;
+        min-width: 50px;
+        text-align: center;
+    }
+    
+    @media (max-width: 700px) {
+        .calculator {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .operator {
+            margin: 5px 0;
+            margin-top: 0;
+        }
+        
+        button, .resultado {
+            margin-top: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Suma con Función Flecha</h1>
+        
+        <div class="calculator">
+            <div class="input-group">
+                <label for="numero1">Número 1</label>
+                <input type="number" id="numero1" placeholder="Número">
+            </div>
+            
+            <div class="operator">+</div>
+            
+            <div class="input-group">
+                <label for="numero2">Número 2</label>
+                <input type="number" id="numero2" placeholder="Número">
+            </div>
+            
+            <button id="btnSumar">Sumar</button>
+            
+            <div class="resultado">
+                <h3>=</h3>
+                <div id="resultado">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const suma = (a, b) => {
+            c = a + b;
+            return c;
+        }
+
+        const inputNumero1 = document.getElementById('numero1');
+        const inputNumero2 = document.getElementById('numero2');
+        const btnSumar = document.getElementById('btnSumar');
+        const resultadoElement = document.getElementById('resultado');
+
+        btnSumar.addEventListener('click', () => {
+            const num1 = parseFloat(inputNumero1.value) || 0;
+            const num2 = parseFloat(inputNumero2.value) || 0;
+            const resultado = suma(num1, num2);
+            resultadoElement.textContent = resultado;
+        });
+    </script>
+</body>
+</html>

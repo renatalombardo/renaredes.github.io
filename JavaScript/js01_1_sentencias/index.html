@@ -3,83 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diálogo entre Java y HTML</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sentencias</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
+            font-family: 'Georgia', serif;
+            background-color: #faf3e0;
+            color: #5a3e2b;
+            margin: 0;
             padding: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b88c5d' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fffaf0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e8d5c0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #7e5a3c;
+            font-style: italic;
+            border-bottom: 2px dashed #d4b896;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        .poem {
+            background-color: #fdf6e9;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #d4b896;
+            font-style: italic;
             text-align: center;
         }
-        h1, h3 {
-            color: #15037a;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin: 20px 0;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            margin: 15px 0;
-        }
-
-        .highlight {
-            background-color: #0f8bd3;
-            border: 2px solid #1b05e6;
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 20px;
-            font-style: italic;
-        }
-        .message {
-            background-color: #ade6b2;
-            border: 2px solid #60b446;
+        
+        .text-section {
+            margin: 30px 0;
             padding: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-            display: inline-block;
-            margin: 10px 0;
+            background-color: #f9f1e3;
+            border-radius: 8px;
+        }
+        
+        .cottage-decoration {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
         }
     </style>
 </head>
-
 <body>
-    <script type="text/javascript">
-        alert("Este es un mensaje de alerta, seleccione aceptar para continuar");
-    </script>
-
-    <h3>Texto 1 HTML</h3>
-
-    <script>
-        document.write('<h1 class="message">Texto 1 Java</h1>')
-    </script>
-
-    <h3>Texto 2 HTML</h3>
-
-    <script>
-        document.write('<h1 class="message">Texto 2 Java</h1>')
-    </script>
-
-    <h3>Texto 3 HTML</h3>
-
-    <div class="highlight">
-        <script>
-            document.write("Se puede observar como Java y HTML no se pisan porque todavia el flujo de escritura del navegador sigue")
-        </script>
+    <div class="container">
+        <h1>Jardín de Poemas</h1>
+        <div class="cottage-decoration">🌼 🍂 🍄 🌷</div>
+        <div class="text-section">
+            <h2>Texto escrito en HTML 1</h2>
+            <div class="poem">
+                <p>Entre flores y suspiros,</p>
+                <p>el tiempo se detiene.</p>
+                <p>La brisa acaricia suavemente</p>
+                <p>los pétalos que el sol calienta.</p>
+            </div>
+        </div>
+        
+        <div class="text-section">
+            <h2>Texto escrito en HTML 2</h2>
+            <div class="poem">
+                <p>El aroma del campo,</p>
+                <p>mezcla de tierra y rocío,</p>
+                <p>me transporta a mañanas</p>
+                <p>de infinito y frío.</p>
+            </div>
+        </div>        
     </div>
 
-    <br><br>
-
-    <div class="highlight">
-        <script>
-            document.write("Y al ser esta la ultima linea del documento se termina este flujo de escritura ")
-        </script>
-    </div>
+    <script>
+        alert("Alerta 1");
+        document.write('<div class="container"><div class="text-section"><h2>Mensaje escrito en JavaScript 1</h2><div class="poem"><p>Bajo el viejo roble,</p><p>las historias se tejen,</p><p>entre hojas que caen</p><p>y secretos que se mecen.</p></div></div>');
+        document.write('<div class="text-section"><h2>Mensaje escrito en JavaScript 2</h2><div class="poem"><p>La tetera silba,</p><p>el pastel está en el horno,</p><p>y en el jardín florecen</p><p>los recuerdos de todo el año.</p></div></div></div>');
+        alert("Alerta 2");
+    </script>
 </body>
 </html>
-

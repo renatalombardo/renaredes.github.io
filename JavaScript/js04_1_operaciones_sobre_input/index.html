@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Operaciones sobre Input</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #000;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .input-container {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(118, 118, 128, 0.12);
+            font-size: 17px;
+            text-align: center;
+            color: #000;
+            font-weight: 500;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            background: rgba(118, 118, 128, 0.18);
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(60, 60, 67, 0.6);
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            background: rgba(0, 122, 255, 0.1);
+            color: #007aff;
+        }
+
+        button:hover {
+            background: rgba(0, 122, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            background: rgba(0, 122, 255, 0.3);
+        }
+
+        #muestraValor {
+            grid-column: span 2;
+            background: #007aff;
+            color: white;
+        }
+
+        #muestraValor:hover {
+            background: #0056cc;
+        }
+
+        .ios-status-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 17px;
+            color: #000;
+        }
+
+        .home-indicator {
+            position: fixed;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: #000;
+            border-radius: 3px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            button {
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ios-status-bar">12:30</div>
+    <div class="container">
+        <h1>Operaciones Matemáticas</h1>
+        <div class="input-container">
+            <input type="text" id="caja" placeholder="Introduce un valor numérico" inputmode="numeric">
+        </div>
+        <div class="buttons-grid">
+            <button id="muestraValor">Mostrar Valor</button>
+            <button id="suma">+ 1</button>
+            <button id="elevadoCuadrado">x²</button>
+            <button id="multiplica">× 2</button>
+            <button id="elevadoEquis">2ˣ</button>
+        </div>
+    </div>  
+    <div class="home-indicator"></div>
+
+    <script>
+        document.getElementById("muestraValor").addEventListener('click', function () {
+            alert("El valor actual es: " + document.getElementById("caja").value);
+        });
+
+        document.getElementById("suma").addEventListener('click', function () {
+            let valor = parseInt(document.getElementById("caja").value) || 0;
+            document.getElementById("caja").value = valor + 1;
+        });
+
+        document.getElementById("elevadoCuadrado").addEventListener('click', function () {
+            let valor = parseInt(document.getElementById("caja").value) || 0;
+            document.getElementById("caja").value = Math.pow(valor, 2);
+        });
+
+        document.getElementById("multiplica").addEventListener('click', function () {
+            let valor = parseInt(document.getElementById("caja").value) || 0;
+            document.getElementById("caja").value = valor * 2;
+        });
+
+        document.getElementById("elevadoEquis").addEventListener('click', function () {
+            let valor = parseInt(document.getElementById("caja").value) || 0;
+            document.getElementById("caja").value = Math.pow(2, valor);
+        });
+    </script>
+</body>
+</html>

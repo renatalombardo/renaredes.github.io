@@ -80,6 +80,20 @@
         e.preventDefault();
       }
     });
+
+    diaInput.addEventListener("change", function() {
+      if (!diaInput.checkValidity()) {
+        alert("El día debe estar entre 1 y 31");
+        diaInput.value = "";
+      }
+    });
+
+    mesInput.addEventListener("change", function() {
+      if (!mesInput.checkValidity()) {
+        alert("El mes debe estar entre 1 y 12");
+        mesInput.value = "";
+      }
+    });
   </script>
 </body>
 </html>

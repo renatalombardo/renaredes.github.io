@@ -1,97 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Variables</title>
-    <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Variables Simples</title>
+    <style> 
         * {
-            margin: 0px;
-            padding: 20px;
+            margin: 0;
+            padding: 10px;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #80ace5;
-            height: 100vh;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #5a4b41;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:url('jardin-botanico.JPG') no-repeat center center fixed;;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 750px;
+            background-color: rgba(255, 253, 245, 0.774);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(139, 90, 43, 0.25);
+            border: 2px solid #e8c4a0;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #8b5a2b;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-style: italic;
+            padding: 15px;
+            border-bottom: 2px dashed #d4a76a;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #fae3c6, #e8c4a0);
+            color: #5a4b41;
+            border: 2px solid #d4a76a;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 6px rgba(139, 90, 43, 0.15);
+        }   
+
+        button:hover {
+            background: linear-gradient(to bottom, #fce9d1, #edd0ad);
         }
 
         .resultado {
             width: 100%;
             padding: 15px;
-            border: 2px solid #000000;
-            background-color: #2d7591;
+            border: 2px dashed #d4a76a;
+            background-color: rgba(248, 241, 229, 0.9);
             border-radius: 8px;
-            margin-top: 10px;
+            margin-top: 15px;
+            min-height: 120px;
+            font-family: 'Source Sans Pro', sans-serif;
         }
 
-        button {
-            background-color: #2413c2;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #342d91;
+        .resultado h2 {
+            color: #8b5a2b;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
         }
     </style>
 </head>
 
 <body>
+    <div class="container">  
+        <h1>Tipos de Variables JavaScript ☕</h1>
+        
+        <div class="button-container">
+            <button id="btnZ">var z</button>
+            <button id="btnQ">let q</button>
+            <button id="btnA">var a = 3</button>
+            <button id="btnB">var b = '1'</button>
+            <button id="btnC">var c = 5</button>
+            <button id="btnSuma1">suma 1 = a + b</button>
+            <button id="btnSuma2">suma 2 = a + c</button>
+        </div>
 
-    <div>
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de z: ' + z + '</h2><h2>Tipo de z: ' + typeof z + '</h2>';">
-            var z
-        </button>
-
-         <button onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de q: ' + q + '</h2><h2>Tipo de q: ' + typeof q + '</h2>';">
-            let q
-        </button>
-
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de a: ' + a + '</h2><h2>Tipo de a: ' + typeof a + '</h2>';">
-            var a = 3
-        </button>
-
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de b: ' + b + '</h2><h2>Tipo de b: ' + typeof b + '</h2>';">
-            var b = '1'
-        </button>
-
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de c: ' + c + '</h2><h2>Tipo de c: ' + typeof c + '</h2>';">
-            var c = 5
-        </button>
-
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de suma 1: ' + suma1 + '</h2><h2>Tipo de suma 1: ' + typeof suma1 + '</h2>';">
-            suma1 = a + b
-        </button>
-
-        <button
-            onclick="document.getElementById('resultado').innerHTML = '<h2>Valor de suma 2: ' + suma2 + '</h2><h2>Tipo de suma 2: ' + typeof suma2 + '</h2>';">
-            suma2 = a + c
-        </button>
-
-        <div id="resultado" class="resultado"></div>
+        <div id="resultado" class="resultado">
+            <p>Haz clic en cualquier botón para mostrar el valor y tipo de la variable.</p>
+        </div>
     </div>
 
     <script>
         var z;
-        let q = "Hola mundo";
+        let q = "I wish I knew you wanted me";
         var a = 3;
         var b = '1';
         var c = 5;
         var suma1 = a + b;
         var suma2 = a + c;
+
+        document.getElementById('btnZ').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de z: ' + z + '</h2><h2>Tipo de z: ' + typeof z + '</h2>';
+        });
+
+        document.getElementById('btnQ').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de q: ' + q + '</h2><h2>Tipo de q: ' + typeof q + '</h2>';
+        });
+
+        document.getElementById('btnA').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de a: ' + a + '</h2><h2>Tipo de a: ' + typeof a + '</h2>';
+        });
+
+        document.getElementById('btnB').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de b: ' + b + '</h2><h2>Tipo de b: ' + typeof b + '</h2>';
+        });
+
+        document.getElementById('btnC').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de c: ' + c + '</h2><h2>Tipo de c: ' + typeof c + '</h2>';
+        });
+
+        document.getElementById('btnSuma1').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de suma 1: ' + suma1 + '</h2><h2>Tipo de suma 1: ' + typeof suma1 + '</h2>';
+        });
+
+        document.getElementById('btnSuma2').addEventListener('click', function() {
+            document.getElementById('resultado').innerHTML = '<h2>Valor de suma 2: ' + suma2 + '</h2><h2>Tipo de suma 2: ' + typeof suma2 + '</h2>';
+        });
     </script>
-
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,12 +31,22 @@
         }
 
         input[type="text"],
-        input[type="date"] {
+        input[type="date"],
+        input[type="email"],
+        input[type="number"] {
             width: 98%;
             padding: 8px;
             margin-bottom: 10px;
             border: 1px solid #438eb9;
             border-radius: 5px;
+        }
+
+        input:invalid {
+            border-color: #ff6b6b;
+        }
+
+        input:valid {
+            border-color: #438eb9;
         }
 
         button {
@@ -52,6 +61,11 @@
 
         button:hover {
             background-color: #708f36;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
         }
 
         .control {
@@ -85,20 +99,38 @@
             margin-top: 10px;
             font-weight: bold;
         }
+
+        .error {
+            color: #ff6b6b;
+            font-size: 0.9em;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            display: none;
+        }
     </style>
 </head>
-
 <body>
     <div class="formulario">
         <h1>Tabla de Alumnos</h1>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" placeholder="Ingrese nombre">
+        <input type="text" id="nombre" placeholder="Ingrese nombre" required>
+        <div id="nombreError" class="error">Por favor ingrese un nombre válido</div>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" placeholder="Ingrese apellido">
+        <input type="text" id="apellido" placeholder="Ingrese apellido" required>
+        <div id="apellidoError" class="error">Por favor ingrese un apellido válido</div>
 
         <label for="fechaNac">Fecha de Nacimiento:</label>
-        <input type="date" id="fechaNac">
+        <input type="date" id="fechaNac" required>
+        <div id="fechaNacError" class="error">Por favor ingrese una fecha válida</div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="ejemplo@dominio.com" required>
+        <div id="emailError" class="error">Por favor ingrese un email válido</div>
+
+        <label for="matricula">N° de Matrícula:</label>
+        <input type="text" id="matricula" placeholder="000123456" pattern="000\d{6}" required>
+        <div id="matriculaError" class="error">Formato: 000 + 6 dígitos (ej: 000123456)</div>
 
         <button id="crearAlumno">Agregar Alumno</button>
     </div>
@@ -116,6 +148,8 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Fecha de Nacimiento</th>
+                    <th>Email</th>
+                    <th>N° Matrícula</th>
                 </tr>
             </thead>
             <tbody>
@@ -125,49 +159,167 @@
     </div>
 
     <script>
+
         const arregloAlumnos = [
-            { nombre: "Renata", apellido: "Lombardo", fechaNac: "2004-03-25" },
-            { nombre: "Eloy", apellido: "Oliva", fechaNac: "2003-09-03" }
+            { 
+                nombre: "Renata", 
+                apellido: "Lombardo", 
+                fechaNac: "2004-03-25",
+                email: "renatalombardo04@gmail.com",
+                matricula: "000123456"
+            },
+            { 
+                nombre: "Eloy", 
+                apellido: "Oliva", 
+                fechaNac: "2003-09-03",
+                email: "eloyoliva12@hotmail.com",
+                matricula: "000654321"
+            }
         ];
 
-        document.getElementById("crearAlumno").addEventListener("click", function () {
-            const nombre = document.getElementById("nombre").value;
-            const apellido = document.getElementById("apellido").value;
-            const fechaNac = document.getElementById("fechaNac").value;
+        // Referencias a elementos del DOM
+        const nombreInput = document.getElementById("nombre");
+        const apellidoInput = document.getElementById("apellido");
+        const fechaNacInput = document.getElementById("fechaNac");
+        const emailInput = document.getElementById("email");
+        const matriculaInput = document.getElementById("matricula");
+        const crearAlumnoBtn = document.getElementById("crearAlumno");
+        const mostrarListaBtn = document.getElementById("mostrarLista");
+        const ocultarPresentacionBtn = document.getElementById("ocultarPresentacion");
+        const presentacionDiv = document.getElementById("presentacion");
+        const tablaBody = document.querySelector("#tablaAlumnos tbody");
+        const longitudParrafo = document.getElementById("longitud");
 
-            if (nombre && apellido && fechaNac) {
-                const nuevoAlumno = { nombre, apellido, fechaNac };
+        // Elementos de error
+        const nombreError = document.getElementById("nombreError");
+        const apellidoError = document.getElementById("apellidoError");
+        const fechaNacError = document.getElementById("fechaNacError");
+        const emailError = document.getElementById("emailError");
+        const matriculaError = document.getElementById("matriculaError");
+
+        // Función para validar campos
+        function validarCampos() {
+            let valido = true;
+            
+            // Validar nombre
+            if (!nombreInput.checkValidity()) {
+                nombreError.style.display = "block";
+                valido = false;
+            } else {
+                nombreError.style.display = "none";
+            }
+            
+            // Validar apellido
+            if (!apellidoInput.checkValidity()) {
+                apellidoError.style.display = "block";
+                valido = false;
+            } else {
+                apellidoError.style.display = "none";
+            }
+            
+            // Validar fecha de nacimiento
+            if (!fechaNacInput.checkValidity()) {
+                fechaNacError.style.display = "block";
+                valido = false;
+            } else {
+                fechaNacError.style.display = "none";
+            }
+            
+            // Validar email
+            if (!emailInput.checkValidity()) {
+                emailError.style.display = "block";
+                valido = false;
+            } else {
+                emailError.style.display = "none";
+            }
+            
+            // Validar matrícula 
+            const matriculaPattern = /^000\d{6}$/;
+            if (!matriculaPattern.test(matriculaInput.value)) {
+                matriculaError.style.display = "block";
+                valido = false;
+            } else {
+                matriculaError.style.display = "none";
+            }
+            
+            return valido;
+        }
+
+        // Evento para agregar alumno
+        crearAlumnoBtn.addEventListener("click", function () {
+            if (validarCampos()) {
+                const nuevoAlumno = {
+                    nombre: nombreInput.value,
+                    apellido: apellidoInput.value,
+                    fechaNac: fechaNacInput.value,
+                    email: emailInput.value,
+                    matricula: matriculaInput.value
+                };
+                
+                // Agregar al arreglo
                 arregloAlumnos.push(nuevoAlumno);
                 alert("Alumno añadido correctamente.");
-                document.getElementById("nombre").value = '';
-                document.getElementById("apellido").value = '';
-                document.getElementById("fechaNac").value = '';
+                
+                // Limpiar formulario
+                nombreInput.value = '';
+                apellidoInput.value = '';
+                fechaNacInput.value = '';
+                emailInput.value = '';
+                matriculaInput.value = '';
+                
+                // Ocultar mensajes de error
+                nombreError.style.display = "none";
+                apellidoError.style.display = "none";
+                fechaNacError.style.display = "none";
+                emailError.style.display = "none";
+                matriculaError.style.display = "none";
             } else {
-                alert("Por favor, complete todos los campos.");
+                alert("Por favor, complete todos los campos correctamente.");
             }
         });
 
-        document.getElementById("mostrarLista").addEventListener("click", function () {
-            const tabla = document.querySelector("#tablaAlumnos tbody");
-            tabla.innerHTML = '';
-
-            arregloAlumnos.forEach(alumno => {
-                const fila = `<tr>
-                    <td>${alumno.nombre}</td>
-                    <td>${alumno.apellido}</td>
-                    <td>${alumno.fechaNac}</td>
-                </tr>`;
-                tabla.innerHTML += fila;
+        // Evento para mostrar lista
+        mostrarListaBtn.addEventListener("click", function () {
+            tablaBody.innerHTML = '';
+            arregloAlumnos.forEach(function(alumno, indice) {
+                const fila = document.createElement("tr");
+                const celdaNombre = document.createElement("td");
+                celdaNombre.textContent = alumno.nombre;
+                const celdaApellido = document.createElement("td");
+                celdaApellido.textContent = alumno.apellido;
+                const celdaFechaNac = document.createElement("td");
+                celdaFechaNac.textContent = alumno.fechaNac;
+                const celdaEmail = document.createElement("td");
+                celdaEmail.textContent = alumno.email;
+                const celdaMatricula = document.createElement("td");
+                celdaMatricula.textContent = alumno.matricula;
+                
+                fila.appendChild(celdaNombre);
+                fila.appendChild(celdaApellido);
+                fila.appendChild(celdaFechaNac);
+                fila.appendChild(celdaEmail);
+                fila.appendChild(celdaMatricula);
+                
+                tablaBody.appendChild(fila);
             });
-
-            document.getElementById("longitud").innerHTML = `Longitud del arreglo de objetos: ${arregloAlumnos.length}`;
-            document.getElementById("presentacion").classList.remove("hidden");
+            
+            longitudParrafo.innerHTML = `Longitud del arreglo de objetos: ${arregloAlumnos.length}`;
+            
+            presentacionDiv.style.display = "block";
+            presentacionDiv.classList.remove("hidden");
+            presentacionDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
-        document.getElementById("ocultarPresentacion").addEventListener("click", function () {
-            document.getElementById("presentacion").classList.add("hidden");
+        ocultarPresentacionBtn.addEventListener("click", function () {
+            presentacionDiv.style.display = "none";
+            presentacionDiv.classList.add("hidden");
         });
+
+        nombreInput.addEventListener("input", validarCampos);
+        apellidoInput.addEventListener("input", validarCampos);
+        fechaNacInput.addEventListener("input", validarCampos);
+        emailInput.addEventListener("input", validarCampos);
+        matriculaInput.addEventListener("input", validarCampos);
     </script>
-
 </body>
 </html>

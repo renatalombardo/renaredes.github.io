@@ -1,76 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arreglos</title>
+    <title>Arreglo de Canciones</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            color: #0e1a88;
+            font-family: 'Georgia', serif;
+            background-color: #1a2a1a;
+            color: #e8d9c5;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #000000;
+        h1, h2, h3 {
+            color: #c9b178;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
             font-size: 28px;
-            margin-bottom: 20px;
+            margin-bottom: 15px; 
+            margin-top: 5px; 
+            border-bottom: 2px solid #6b4c35;
+            padding-bottom: 8px; 
         }
 
         h2 {
             font-size: 22px;
             margin-bottom: 15px;
+            color: #a5c293;
         }
 
         h3 {
             font-size: 18px;
             margin-bottom: 10px;
+            color: #d6c6a5;
         }
 
         .container {
-            background-color: #40ccb5;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #2c3e2c;
+            padding: 20px 25px 25px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             max-width: 600px;
-            margin: auto;
+            width: 90%;
+            border: 1px solid #6b4c35;
+            margin: 20px auto;
         }
 
-        p {
-            font-size: 16px;
-            color: #880e4f;
+        .song-list {
+            background-color: #243624;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #c9b178;
+        }
+
+        .song-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed #6b4c35;
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .length-info {
+            background-color: #6b4c35;
+            color: #e8d9c5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
         }
     </style>
+    
+    <script>
+        var cancionesFavoritas = [];
+    </script>
 </head>
 
 <body>
 
     <div class="container">
-        <script type="text/javascript">
-
-            var arregloAlumnos = [];
-            arregloAlumnos = ["Joaquin", "Olga"];
-
-            arregloAlumnos.push(prompt('El arregloAlumnos ya tiene dos estudiantes asignados por programa, agregue un tercer estudiante: '));
-
-            document.write("<h1> Variables multidimensionales. </h1>");
-            document.write("<h1> Array de índice numérico. </h1>");
-            document.write("<h2> Tipo para arregloAlumnos: " + typeof arregloAlumnos + " </h2>");
-            document.write("<h3>Primera estudiante cargada desde programa: " + arregloAlumnos[0] + "</h3>");
-            document.write("<h3>Segundo estudiante cargado desde programa: " + arregloAlumnos[1] + "</h3>");
-            document.write("<h3>Tercer estudiante cargado desde teclado: " + arregloAlumnos[2] + "</h3>");
-            document.write("<h2>Cantidad de estudiantes en la clase: " + arregloAlumnos.length + "</h2>");
-
-        </script>
+        <h1>🎵 Mi Playlist Musical</h1>
+        <div id="contenido">
+        </div>
     </div>
 
-</body>
+    <script>
+        cancionesFavoritas = ["Borderline - Tame Impala", "Swimming Pools - Kendrick Lamar"];
 
+        cancionesFavoritas.push(prompt('La playlist ya tiene dos canciones. Agregue una tercera canción:'));
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const contenidoDiv = document.getElementById('contenido');
+            
+            const tipoInfo = document.createElement('h2');
+            tipoInfo.textContent = 'Tipo para cancionesFavoritas: ' + typeof cancionesFavoritas;
+
+            const listaCanciones = document.createElement('div');
+            listaCanciones.className = 'song-list';
+            
+            cancionesFavoritas.forEach(function(cancion, indice) {
+                const elementoCancion = document.createElement('div');
+                elementoCancion.className = 'song-item';
+                
+                let texto = '';
+                if (indice === 0) {
+                    texto = 'Primera canción cargada desde programa: ' + cancion;
+                } else if (indice === 1) {
+                    texto = 'Segunda canción cargada desde programa: ' + cancion;
+                } else if (indice === 2) {
+                    texto = 'Tercera canción cargada desde teclado: ' + cancion;
+                } else {
+                    texto = 'Canción ' + (indice + 1) + ': ' + cancion;
+                }
+                
+                elementoCancion.textContent = texto;
+                listaCanciones.appendChild(elementoCancion);
+            });
+            
+            const infoLongitud = document.createElement('div');
+            infoLongitud.className = 'length-info';
+            infoLongitud.textContent = 'Cantidad de canciones en la playlist: ' + cancionesFavoritas.length;
+            
+            contenidoDiv.appendChild(tipoInfo);
+            contenidoDiv.appendChild(listaCanciones);
+            contenidoDiv.appendChild(infoLongitud);
+        });
+    </script>
+
+</body>
 </html>

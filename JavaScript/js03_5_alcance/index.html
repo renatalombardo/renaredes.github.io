@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Alcances de Variables</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #ffe6e6;
+            color: #8a5a5a;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .decorative-element {
+            position: fixed;
+            font-size: 3rem;
+            opacity: 0.5;
+            color: #d48a8a;
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            top: 15%;
+            left: 10%;
+        }
+
+        .decoration-2 {
+            top: 25%;
+            right: 15%;
+        }
+
+        .decoration-3 {
+            bottom: 20%;
+            left: 20%;
+        }
+
+        .decoration-4 {
+            bottom: 30%;
+            right: 10%;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.4em;
+            color: #d48a8a;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            background-color: #ffd6d6;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+            display: inline-block;
+            margin-top: 20px;
+            border: 2px solid #f4b6b6;
+            max-width: 600px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #f8c8c8, #e8b4b4);
+            color: #8a5a5a;
+            border: 2px solid #d48a8a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: linear-gradient(to bottom, #fadada, #f0c0c0);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+                border-radius: 12px;
+            }
+            
+            button {
+                padding: 10px 15px;
+                font-size: 13px;
+                min-height: 45px;
+            }
+            
+            .decorative-element {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 12px;
+            }
+            
+            .button-container {
+                gap: 10px;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 12px;
+                min-height: 40px;
+                border-width: 1px;
+            }
+            
+            .decorative-element {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 550px;
+            }
+            
+            button {
+                padding: 14px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-element decoration-1">✦</div>
+    <div class="decorative-element decoration-2">❀</div>
+    <div class="decorative-element decoration-3">✧</div>
+    <div class="decorative-element decoration-4">♡</div>
+    <h1>Ejemplo de Alcances de Variables</h1>
+
+    <div class="container">
+        <div class="button-container">
+            <button id="btnInicializar">Inicialización desde adentro de un procedimiento</button>
+            <button id="btnForzada">Inicialización forzada desde adentro de un procedimiento</button>
+            <button id="btnMostrar">Mostrar variable global</button>
+        </div>
+    </div>
+
+    <script>
+        var variableGlobal;
+        
+        alert("La variable global ha sido declarada, pero no asignada.");
+        alert("Valor de variableGlobal: " + variableGlobal);
+        alert("Tipo de variableGlobal: " + typeof variableGlobal);
+        
+        document.getElementById('btnInicializar').addEventListener('click', function() {
+            var variableLocal = prompt('Ingrese un valor para la variable local:');
+            alert('Valor de variableLocal: ' + variableLocal);
+            alert('Tipo de variableLocal: ' + typeof variableLocal);
+        });
+        
+        document.getElementById('btnForzada').addEventListener('click', function() {
+            variableGlobal = prompt('Ingrese un valor para la variable global:');
+            alert('Valor de variableGlobal: ' + variableGlobal);
+            alert('Tipo de variableGlobal: ' + typeof variableGlobal);
+        });
+        
+        document.getElementById('btnMostrar').addEventListener('click', function() {
+            alert('Valor de variableGlobal: ' + variableGlobal);
+        });
+    </script>
+</body>
+</html>

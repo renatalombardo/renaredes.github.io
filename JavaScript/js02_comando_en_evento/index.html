@@ -1,47 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Comandos con eventos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>Comandos con Eventos</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #5c7eda;
-            color: #880e4f;
-            padding: 15px;
-            height: 100vh;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #fff5f5;
+            color: #8b7b7b;
+            padding: 20px;
             margin: 0;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(#ffd6d6 1px, transparent 1px);
+            background-size: 20px 20px;
         }
-
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 550px;
+            width: 90%;
+            border: 1px solid #ffd6d6;
+        }
+        
         h1 {
-            margin-bottom: 20px;
-            color: #1c448f;
+            font-family: 'Playfair Display', serif;
+            color: #e8a2a2;
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
         }
-
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
         button {
-            background-color: #3817b1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
+            background-color: #f8e1e1;
+            color: #8b7b7b;
+            border: 1px solid #e8c8c8;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1.3rem;
             cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
         }
-
+        
         button:hover {
-            background-color: #1b67d8;
+            background-color: #f4d2d2;
+            color: #7a6a6a;
+        }
+        
+        .decoration {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #e8c8c8;
+            letter-spacing: 10px;
+        }
+        
+        .instruction {
+            margin-top: 25px;
+            font-style: italic;
+            color: #c9a9a9;
+            font-size: 1.1rem;
+        }
+        
+        .flower {
+            position: absolute;
+            color: #f4d2d2;
+            font-size: 1.5rem;
+            z-index: -1;
+        }
+        
+        .flower1 {
+            top: 15%;
+            left: 15%;
+        }
+        
+        .flower2 {
+            top: 20%;
+            right: 15%;
+        }
+        
+        .flower3 {
+            bottom: 15%;
+            left: 20%;
+        }
+        
+        .flower4 {
+            bottom: 25%;
+            right: 20%;
         }
     </style>
 </head>
 <body>
-    <h1>Comando en evento.</h1>
-    <button onclick="alert('Este mensaje es una simple alerta');">
-        Click aquí para ejecutar un alert()
-    </button>
-    <button onclick="document.write('<style>body { font-size: 40px; }</style>Hola. Esta escritura pisa lo anterior')">
-        Click aquí para ejecutar un document.write()
-    </button>
+    <div class="flower flower1">✿</div>
+    <div class="flower flower2">✿</div>
+    <div class="flower flower3">✿</div>
+    <div class="flower flower4">✿</div>
+    
+    <div class="container">
+        <h1>Comandos con Eventos</h1>        
+        <div class="button-container">
+            <button id="btnAlert">
+                Ejecutar alert()
+            </button>            
+            <button id="btnWrite">
+                Ejecutar document.write()
+            </button>
+        </div>
+        
+        <p class="instruction">Haz clic en los botones para probar los diferentes eventos</p>
+    </div>
+
+    <script>
+        document.getElementById('btnAlert').addEventListener('click', function() {
+            alert('✿ Este es un mensaje de alerta.');
+        });
+        
+        document.getElementById('btnWrite').addEventListener('click', function() {
+            document.write('<div style=\'font-family: Cormorant Garamond, serif; font-style: italic; text-align: center; background-color: #fff5f5; color: #8b7b7b; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;\'><div style=\'font-size: 1.8rem; margin-bottom: 20px; color: #e8a2a2;\'>"Perfection is the enemy of perfectly adequate"<br/> -Better Call Saul ✿</div></div>');
+        });
+    </script>
 </body>
 </html>

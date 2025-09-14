@@ -349,13 +349,13 @@ You left me no choice but to stay here forever
 
     <form id="bookForm">
       <label>Título:</label><br>
-      <input type="text" id="titulo" name="titulo"><br>
+      <input type="text" id="titulo" name="titulo" required><br>
 
       <label>Autor:</label><br>
-      <input type="text" id="autor" name="autor"><br>
+      <input type="text" id="autor" name="autor" required><br>
 
       <label>Año de Publicación:</label><br>
-      <input type="number" id="anio" name="anio" placeholder="1800 - 2025" min="1800" max="2025"><br>
+      <input type="number" id="anio" name="anio" placeholder="1800 - 2025" min="1800" max="2025" required><br>
 
       <button type="button" id="blanquear" disabled>Blanquear</button>
       <button type="button" id="agregar" disabled>Agregar libro</button>
@@ -365,6 +365,7 @@ You left me no choice but to stay here forever
   </div>
 
   <script>
+    // Obtenemos referencias a los elementos del DOM (teoría página 11)
     const form = document.getElementById("bookForm");
     const titulo = document.getElementById("titulo");
     const autor = document.getElementById("autor");
@@ -375,48 +376,52 @@ You left me no choice but to stay here forever
     const btnMod = document.getElementById("modificar");
     const btnEliminar = document.getElementById("eliminar");
 
+    // Función para validar campos
     function validarCampos() {
-      const t = titulo.value.trim();
-      const a = autor.value.trim();
-      const y = anio.value.trim();
-
-      btnBlanquear.disabled = !(t || a || y);
-
-      if (t && a && y) {
-        const numAnio = parseInt(y, 10);
-        if (!isNaN(numAnio) && numAnio >= 1800 && numAnio <= 2025) {
-          btnAgregar.disabled = false;
-          btnMod.disabled = false;
-          btnEliminar.disabled = false;
-        } else {
-          btnAgregar.disabled = true;
-          btnMod.disabled = true;
-          btnEliminar.disabled = true;
-        }
-      } else {
-        btnAgregar.disabled = true;
-        btnMod.disabled = true;
-        btnEliminar.disabled = true;
-      }
+      btnBlanquear.disabled = !(titulo.value || autor.value || anio.value);
+      const formularioValido = titulo.checkValidity() && autor.checkValidity() && anio.checkValidity();
+      btnAgregar.disabled = !formularioValido;
+      btnMod.disabled = !formularioValido;
+      btnEliminar.disabled = !formularioValido;
+      return formularioValido;
     }
 
+    // Validación en tiempo real 
     titulo.addEventListener("input", validarCampos);
     autor.addEventListener("input", validarCampos);
     anio.addEventListener("input", validarCampos);
 
-    btnBlanquear.addEventListener("click", () => {
+    // Evento para blanquear formulario 
+    btnBlanquear.addEventListener("click", function() {
       form.reset();
       validarCampos();
     });
 
-    function enviarAccion(archivo) {
-      const url = `${archivo}.html?titulo=${encodeURIComponent(titulo.value)}&autor=${encodeURIComponent(autor.value)}&anio=${encodeURIComponent(anio.value)}`;
-      window.open(url, "_blank");
+    // Función para enviar acción 
+    function enviarAccion(accion) {
+      if (validarCampos()) {
+        const url = `${accion}.html?titulo=${encodeURIComponent(titulo.value)}&autor=${encodeURIComponent(autor.value)}&anio=${encodeURIComponent(anio.value)}`;
+        window.open(url, "_blank");
+      }
     }
 
-    btnAgregar.addEventListener("click", () => enviarAccion("altaLibro"));
-    btnMod.addEventListener("click", () => enviarAccion("modificarLibro"));
-    btnEliminar.addEventListener("click", () => enviarAccion("bajaLibro"));
+    // Asignar eventos a los botones 
+    btnAgregar.addEventListener("click", function() {
+      enviarAccion("altaLibro");
+    });
+    
+    btnMod.addEventListener("click", function() {
+      enviarAccion("modificarLibro");
+    });
+    
+    btnEliminar.addEventListener("click", function() {
+      enviarAccion("bajaLibro");
+    });
+
+    // Validación inicial al cargar la página 
+    window.addEventListener("load", function() {
+      validarCampos();
+    });
   </script>
 </body>
 </html>
