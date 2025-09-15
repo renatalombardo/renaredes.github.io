@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Pedidos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .contenedor {
+            width: 95%;
+            max-width: 850px; 
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.466);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            table-layout: fixed; 
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 6px 10px; 
+            text-align: left;
+            border: 1px solid #b6b6b6;
+            word-wrap: break-word; 
+        }
+
+        th {
+            background-color: #5a90bd;
+            color: white;
+        }
+
+        td a {
+            color: #007BFF;
+            text-decoration: none;
+            word-break: break-all; 
+            text-decoration: underline;
+        }
+
+        .boton-desplegable {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            text-align: center;
+            display: block;
+            margin: 15px auto;
+            width: 250px;
+            border-radius: 5px;
+        }
+
+        #tabla-unidades-contenedor {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 10px; 
+            }
+            th, td {
+                padding: 6px 8px; 
+                font-size: 12px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualización de Tablas de Pedidos</h1>
+    <div class="contenedor">
+        <h2>Renglones de Pedido</h2>
+        <table id="tabla-pedidos">
+            <thead>
+                <tr>
+                    <th>Nro. Pedido</th>
+                    <th>Cod. Artículo</th>
+                    <th>Descripción</th>
+                    <th>Unidad Medida</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>PDF Comprobante</th>
+                </tr>
+            </thead>
+            <tbody id="pedidos-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="contenedor">
+        <h2>Unidades de Medida</h2>
+        <div class="boton-desplegable" id="boton-unidades">
+            Mostrar / Ocultar
+        </div>
+        
+        <div id="tabla-unidades-contenedor">
+            <table id="tabla-unidades">
+                <thead>
+                    <tr>
+                        <th>Código UM</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody id="unidades-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="scripts_json.js"></script> <!--Archivo con el script JSON y los scripts de JS-->
+
+</body>
+</html>
