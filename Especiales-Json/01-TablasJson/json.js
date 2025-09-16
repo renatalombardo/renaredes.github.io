@@ -16,7 +16,7 @@ var renglonesPedidoJSON = '{
     {"NroDePedido":"014","Cod_articulo":"A113","Descripcion":"Cerveza Rubia","UnidadMedida":"UM05","Cantidad":24,"PrecioUnitario":1350.40,"Pdf_comprobante":""},
     {"NroDePedido":"015","Cod_articulo":"A114","Descripcion":"Gaseosa Cola","UnidadMedida":"UM05","Cantidad":18,"PrecioUnitario":1150.00,"Pdf_comprobante":""}
   ]
-}';
+}'
 
 var unidadesMedidaJSON = '{
   "UnidadesMedida": [
@@ -26,4 +26,4 @@ var unidadesMedidaJSON = '{
     {"codUM":"UM04","Descripcion":"Botella 2lt"},
     {"codUM":"UM05","Descripcion":"Pack 6 uds"}
   ]
-}';
+}'
