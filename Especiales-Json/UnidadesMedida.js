@@ -1,0 +1,1 @@
+const unidadesMedidaJSON = '{ "UnidadesMedida": [ {"codUM":"UM01","Descripcion":"Bolsa 1kg"}, {"codUM":"UM02","Descripcion":"Bolsa 10kg"}, {"codUM":"UM03","Descripcion":"Caja 1lt"}, {"codUM":"UM04","Descripcion":"Botella 2lt"}, {"codUM":"UM05","Descripcion":"Pack 6 uds"} ] }'
