@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indice de Ejercicios HTML</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         h1 {
             font-size: 2.2em;
         }
 
         li {
             font-size: 1.5em;
+        }
+        
+        footer {
+            padding: 20px;
+            margin-top: auto; 
+        }
+
+        footer p {
+            font-style: italic;
+        }
+        
+        footer h2 {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -28,7 +55,7 @@
     </nav>
     <footer>
         <h2>Datos del Alumno</h2>
-        <p style="font-style: italic;">Olga Renata Lombardo<br/>
+        <p>Olga Renata Lombardo<br/>
             P000185302<br/>
             <a href="mailto:olga.lombardo@comunidad.ub.edu.ar">olga.lombardo@comunidad.ub.edu.ar</a>
         </p>
