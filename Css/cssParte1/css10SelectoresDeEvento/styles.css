@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a0000;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #330000, #1a0000);
+}
+
+.contenedor-principal {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #220000;
+    box-shadow: 0px 0px 20px rgba(200, 0, 0, 0.5);
+    border: 1px solid #800;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 12px;
+    position: relative;
+}
+
+.titulo-genero {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: center;
+    background-color: #330000;
+    border-radius: 8px;
+    border: 2px solid #ff4444;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.pestana {
+    padding: 15px 25px;
+    background-color: #500;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pestana:hover {
+    background-color: #a00;
+}
+
+/* Formulario */
+.formulario-datos {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: rgba(100, 0, 0, 0.3);
+    border: 1px solid #a00;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario-datos h2 {
+    color: #ff6b6b;
+    margin-bottom: 27px;
+    border-bottom: 1px solid #a00;
+    padding-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+.grupo-formulario {
+    margin-bottom: 18px;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ff9999;
+    font-weight: 600;
+    text-align: center;
+}
+
+.campo-texto {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #a00;
+    background-color: #300;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+}
+
+.campo-texto:focus {
+    background-color: #600;
+    outline: none;
+    border-color: #f00;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.titulo-principal {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 34px;
+    margin: 30px 0;
+    text-shadow: 1px 1px 3px #000;
+    font-family: 'Playfair Display', serif;
+}
+
+.instruccion {
+    text-align: center;
+    color: #cc9999;
+    font-style: italic;
+    margin: -30px 0 27px 0;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.contenedor-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+}
+
+.contenedor-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.album {
+    width: 200px;
+    background-color: #330000;
+    border: 1px solid #a00;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.album:hover {
+    transform: translateY(-5px);
+}
+
+.portada-album {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    border: 1px solid #600;
+}
+
+.portada-album:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.2);
+    z-index: 10;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.9);
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.info-album {
+    padding: 15px 0 5px;
+    text-align: center;
+}
+
+.info-album h3 {
+    color: #ff8888;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.info-album p {
+    color: #cc9999;
+    font-size: 14px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .contenedor-galeria {
+        justify-content: center;
+    }
+    
+    .navegacion {
+        flex-direction: column;
+    }
+    
+    .pestana {
+        border-right: none;
+        border-bottom: 1px solid #800;
+    }
+    
+    .pestana:last-child {
+        border-bottom: none;
+    }
+    
+    .portada-album:active {
+        width: 80%;
+        max-width: none;
+    }
+    
+    .formulario-datos {
+        max-width: 100%;
+    }
+    
+    .campo-texto {
+        max-width: 100%;
+    }
+}

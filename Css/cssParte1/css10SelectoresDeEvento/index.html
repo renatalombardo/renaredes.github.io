@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores de Evento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h2 class="titulo-genero">Elige tu género musical favorito</h2>
+        <div class="navegacion">
+            <a href="rock.html" class="pestana">Rock</a>
+            <a href="pop.html" class="pestana">Pop</a>
+            <a href="indie.html" class="pestana">Indie</a>
+            <a href="jazz.html" class="pestana">Jazz</a>
+        </div>
+
+        <div class="formulario-datos">
+            <h2>Tu perfil musical</h2>
+            <div class="grupo-formulario">
+                <label for="artista-favorito">Cantante/banda favorito/a:</label>
+                <input type="text" id="artista-favorito" class="campo-texto">
+            </div>
+            <div class="grupo-formulario">
+                <label for="album-favorito">Álbum favorito:</label>
+                <input type="text" id="album-favorito" class="campo-texto">
+            </div>
+        </div>
+
+        <h1 class="titulo-principal">Galería de Álbumes Destacados</h1>
+        <p class="instruccion">Mantén presionado click derecho sobre cualquier imagen para agrandarla</p>
+        
+        <div class="contenedor-galeria">
+            <div class="album">
+                <img src="cinema.jpeg" alt="Álbum 1" class="portada-album">
+                <div class="info-album">
+                    <h3>Cinema</h3>
+                    <p>The Marias</p>
+                </div>
+            </div>
+            <div class="album">
+                <img src="the-slow-rush.png" alt="Álbum 2" class="portada-album">
+                <div class="info-album">
+                    <h3>The Slow Rush</h3>
+                    <p>Tame Impala</p>
+                </div>
+            </div>
+            <div class="album">
+                <img src="dynamo.jpeg" alt="Álbum 3" class="portada-album">
+                <div class="info-album">
+                    <h3>Dynamo</h3>
+                    <p>Soda Stereo</p>
+                </div>
+            </div>
+            <div class="album">
+                <img src="the-blonde.jpg" alt="Álbum 4" class="portada-album">
+                <div class="info-album">
+                    <h3>The Blonde</h3>
+                    <p>TV Girl</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
